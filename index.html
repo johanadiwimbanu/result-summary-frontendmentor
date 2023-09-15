@@ -10,42 +10,73 @@
   <link rel="stylesheet" href="style.css">
 <body>
   <main>
-    <div class="container">
-      <div class="result">
-        <h4>Your Result</h4>
-        <div class="circle">
-          <span class="score">76</span>
-          <p>of 100</p>
+    <div class="result-summary">
+      <div class="result grid-flow" data-spacing="large">
+        <h1 class="section-title">
+          Your Result
+        </h1>
+        <div class="score">
+          <p>76</p>of 100
         </div>
-        <h3>Great</h3>
-        <p>Your scored higher then 65% of the people who have taken these test</p>
+        <div class="grid-flow">
+          <p class="rank">
+            Great
+          </p>
+          <p>You scored higher than 65% of the people who have taken these tests.</p>
+        </div>
       </div>
-      <div class="summary">
-        <div class="details">
-          <div class="details-item reaction">
-            <span class="item-icon"></span>
-            <span class="item-name">Reaction</span>
-            <span class="item-score">80/100</span>
+      <div class="summary grid-flow" data-spacing="large">
+        <h2 class="section-title">
+          Summary
+        </h2>
+        <div class="grid-flow">
+          <div class="summary-item" data-item-accent="accent-1">
+            <div class="flex-group">
+              <svg class="summary-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10.833 8.333V2.5l-6.666 9.167h5V17.5l6.666-9.167h-5Z"/>
+              </svg>
+              <h3 class="summary-item-title">Reaction</h3>
+            </div>
+            <p class="summary-score">
+              <span>80</span>/100
+            </p>
           </div>
-          <div class="details-item memory">
-            <span class="item-icon"></span>
-            <span class="item-name">Memory</span>
-            <span class="item-score">92/100</span>
+          <div class="summary-item" data-item-accent="accent-2">
+            <div class="flex-group">
+              <svg class="memory-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10.833 8.333V2.5l-6.666 9.167h5V17.5l6.666-9.167h-5Z"/>
+              </svg>
+              <h3 class="memory-item-title">Memory</h3>
+            </div>
+            <p class="memory-score">
+              <span>92</span>/100
+            </p>
           </div>
-          <div class="details-item verbal">
-            <span class="item-icon"></span>
-            <span class="item-name">Verbal</span>
-            <span class="item-score">61/100</span>
+          <div class="summary-item" data-item-accent="accent-3">
+            <div class="flex-group">
+              <svg class="verbal-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10.833 8.333V2.5l-6.666 9.167h5V17.5l6.666-9.167h-5Z"/>
+              </svg>
+              <h3 class="verbal-item-title">Verbal</h3>
+            </div>
+            <p class="verbal-score">
+              <span>92</span>/100
+            </p>
           </div>
-          <div class="details-item visual">
-            <span class="item-icon"></span>
-            <span class="item-name">Visual</span>
-            <span class="item-score">72/100</span>
+          <div class="summary-item" data-item-accent="accent-4">
+            <div class="flex-group">
+              <svg class="visual-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10.833 8.333V2.5l-6.666 9.167h5V17.5l6.666-9.167h-5Z"/>
+              </svg>
+              <h3 class="visual-item-title">Visual</h3>
+            </div>
+            <p class="verbal-score">
+              <span>72</span>/100
+            </p>
           </div>
         </div>
-        <button>
-          Continue
-        </button>
+
+        <button class="button">Continue</button>
       </div>
     </div>
   </main>

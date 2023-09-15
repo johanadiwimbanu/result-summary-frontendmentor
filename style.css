@@ -1,86 +1,211 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
 
-*{
-    padding: 0;
+:root {
+    /* Primary Color */
+    --clr-red-hsl: 0, 100%, 67%;
+    --clr-yellow-hsl: 39, 100%, 56%;
+    --clr-teal-hsl: 166, 100%, 37%;
+    --clr-purple-hsl: 234, 85%, 45%;
+
+    --clr-red: hsl(var(--clr-red-hsl));
+    --clr-yellow: hsl(var(--clr-yellow-hsl));
+    --clr-teal: hsl(var(--clr-teal-hsl));
+    --clr-purple: hsl(var(--clr-purple-hsl));
+
+    /* Neutral Color */
+    --ntrl-white-hsl: 0, 0%, 100%;
+    --ntrl-pale-hsl: 221, 100%, 96%;
+    --ntrl-lavender-hsl: 241, 100%, 89%;
+    --ntrl-gray-hsl: 224, 30%, 27%;
+
+    --ntrl-white: hsl(var(--ntrl-white-hsl));
+    --ntrl-pale: hsl(var(--ntrl-pale-hsl));
+    --ntrl-lavender: hsl(var(--ntrl-lavender-hsl));
+    --ntrl-gray: hsl(var(--ntrl-gray-hsl));
+
+    /* Gradients */
+    /* Primary Gradienst*/
+    --primary-gradient-hsl: 252, 100%, 67%;
+    --primary-gradient-lighten-hsl: 256, 72%, 46%, 1;
+    /* Secondary Gradients*/
+    --secondary-gradient-hsl: 241, 81%, 54%;
+    --secondary-gradient-lighten-hsl: 241, 72%, 46%, 0;
+    
+    --gradient-primary: linear-gradient(
+        hsl(var(--primary-gradient-hsl)),
+        hsl(var(--secondary-gradient-hsl))
+    );
+    --gradient-primary-to-transparent: linear-gradient(
+        hsl(var(--primary-gradient-lighten-hsl)),
+        hsl(var(--secondary-gradient-lighten-hsl))
+    );
+    
+    --font-family-default: 'Hanken Grotesk', sans-serif;
+    
+    --fw-regular: 500;
+    --fw-bold: 700;
+    --fw-bolder: 800;
+
+    --fs-400: 1.125rem;
+    --fs-500: 1.25rem;
+    --fs-600: 1.5rem;
+    --fs-700: 1.75rem;
+    --fs-800: 2rem;
+    --fs-900: 4rem;
+}
+
+*,
+*::before,
+*::after{
     margin: 0;
+    padding: 0;
+    font: inherit;
     box-sizing: border-box;
 }
 
-:root{
-    /* Primary Color */
-    --Light-red: hsl(0, 100%, 67%);
-    --Orangey-yellow: hsl(39, 100%, 56%);
-    --Green-teal: hsl(166, 100%, 37%);
-    --Cobalt-blue: hsl(234, 85%, 45%);
-    /* Gradients */
-    --Light-slate-blue: hsl(252, 100%, 67%);
-    --Light-royal-blue: hsl(241, 81%, 54%);
-    --Violet-blue: hsla(256, 72%, 46%, 1);
-    --Persian-blue: hsla(241, 72%, 46%, 0);
-    /* Neutral Color */
-    --White: hsl(0, 0%, 100%);
-    --Pale-blue: hsl(221, 100%, 96%);
-    --Light-lavender: hsl(241, 100%, 89%);
-    --Dark-gray-blue: hsl(224, 30%, 27%);
-    
-
+img,svg{
+    display: block;
+    max-width: 100%;
 }
+
 body{
-    height: 100vh;
-    font-size: 18px;
-    font-family: 'Hanken Grotesk', sans-serif;
-
+    font-family: var(--font-family-default);
+    font-size: var(--fs-400);
+    color: var(--ntrl-gray);
 }
-main{
-    height: 100%;
+
+@media (min-width: 600px){
+    body{
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.section-title{
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-500);
+}
+
+.button {
+    color: var(--ntrl-white);
+    font-weight: normal;
+    line-height: 1;
+    background: var(--ntrl-gray);
+    padding: 1rem 0;
+    border: none;
+    border-radius: 100vw;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover,
+.button:focus-visible{
+    background: var(--gradient-primary);
+}
+
+.result-summary{
+    --padding: 2.5rem;
+    --border-radius: 2rem;
+    max-width: 46rem;
     display: grid;
-    place-items: center;
 }
-.container{
-    border-radius: 18px;
-    box-shadow: 2px 8px 14px 2px var(--Dark-gray-blue);
-    display: flex;
+
+@media(min-width: 600px){
+    .result-summary{
+        margin-inline: 1rem;
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--border-radius);
+        box-shadow: .5rem 1rem 3rem
+            hsla(var(--ntrl-gray-hsl),.2);
+    }
 }
-.container .result{
-    background-image: linear-gradient(var(--Light-slate-blue),var(--Violet-blue));
-    border-radius: 18px;
-    width: 50%;
+
+.result,
+.summary{
+    padding: var(--padding);
+}
+
+.result {
+    color: hsl(var(--ntrl-white-hsl),0.7);
     text-align: center;
-    padding: 40px 20px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    background: var(--gradient-primary);
 }
 
-.circle {
-    width: 180px;
-    margin: 24px auto;
-    height: 180px;
-    background-image: linear-gradient(var(--Violet-blue),var(--Light-slate-blue));
-    border-radius: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+@media (min-width: 600px){
+    .result {
+        border-radius: var(--border-radius);
+    }
 }
 
-.result> p{
-    padding: 20px 40px;
+.grid-flow{
+    display: grid;
+    align-content: start;
+    gap: 1rem
+}
+
+.grid-flow[data-spacing="large"] {
+    gap: 2rem;
 }
 
 .score {
-    font-size: 60px;
-    font-weight: 800;
-    color: var(--White);
+    width: 12rem;
+    margin-inline: auto;
+    background: var(--gradient-primary-to-transparent);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1/1;
 }
 
-.container .result h4,p{
-    color: var(--Pale-blue);
-    font-weight: 500;
+.score p{
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bolder);
+    color: var(--ntrl-white);
 }
 
-.container .result h3{
-    color: var(--White);
-    font-weight: 700;
+.rank {
+    color: var(--ntrl-white);
+    font-size: var(--fs-700);
+    font-weight: bold;
 }
 
-.container .summary{
-    background-color: white;
+.summary-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.flex-group{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.summary-item svg{
+    stroke: var(--stroke);
+}
+
+.summary-item-title{
+    color: var();
+}
+
+.summary-item[data-item-accent="accent-1"]{
+    --stroke: var(--clr-red);
+}
+
+.summary-item[data-item-accent="accent-2"]{
+    --stroke: var(--clr-yellow);
+}
+
+.summary-item[data-item-accent="accent-3"]{
+    --stroke: var(--clr-teal);
+}
+
+.summary-item[data-item-accent="accent-4"]{
+    --stroke: var(--clr-purple);
 }
